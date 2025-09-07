@@ -152,6 +152,11 @@ lofiVolume.addEventListener('change', (e) => {
 
 // Array of radio channels
 const radioChannels = [
+
+    { name: "Trump v. CASA", src: "https://www.supremecourt.gov/media/audio/mp3files/24A884.mp3" },
+    { name: "Medina v. Planned Parenthood South Atlantic", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1275.mp3" },    
+    { name: "Ames v. OH Dept. of Youth Services", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1039.mp3" },    
+    { name: "TikTok, Inc. v. Garland", src: "https://www.supremecourt.gov/media/audio/mp3files/24-656.mp3" },
     { name: "FDA v. Wages and White Lion", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1038.mp3" },
     { name: "United States v. Miller", src: "https://www.supremecourt.gov/media/audio/mp3files/23-824.mp3" },  
     { name: "Hungary v. Simon", src: "https://www.supremecourt.gov/media/audio/mp3files/23-867.mp3" },
