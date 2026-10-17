@@ -83,7 +83,11 @@
             <!-- Music -->
             <div class="track">
                 <svg class="note" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
-                <p id="song-title" class="song-title" aria-live="polite">Loading music…</p>
+                <div class="select-wrap song-wrap">
+                    <label for="song-select" class="visually-hidden">Choose a music track</label>
+                    <select id="song-select" class="song-select"></select>
+                    <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
                 <button id="skip-btn" class="text-btn" type="button" title="Next track ( N )">Next track</button>
             </div>
 
@@ -109,7 +113,7 @@
 
     <footer class="colophon">
         <p class="keys" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> seek <kbd>N</kbd> next track <kbd>[</kbd><kbd>]</kbd> change case</p>
-        <p>Audio from the <a href="https://www.supremecourt.gov/oral_arguments/argument_audio.aspx" target="_blank" rel="noopener">Supreme Court of the United States</a>.</p>
+        <p>Arguments from the <a href="https://www.supremecourt.gov/oral_arguments/argument_audio.aspx" target="_blank" rel="noopener">Supreme Court of the United States</a>. <span id="track-credit"></span></p>
     </footer>
 
     <audio id="scotus-audio" preload="metadata"></audio>

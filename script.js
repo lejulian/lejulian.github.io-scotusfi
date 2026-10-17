@@ -19,12 +19,28 @@
         { name: "Dewberry Group, Inc. v. Dewberry Engineers Inc.", src: "https://www.supremecourt.gov/media/audio/mp3files/23-900.mp3" },
     ];
 
+    // Tracks with a `source` link to the page where the track and its license are published.
+    // The OpenGameArt tracks are all CC0 (public domain) and are streamed from opengameart.org.
+    // To host one yourself, download the MP3 into playlist/ and change its `src` to "playlist/<file>.mp3".
+    const OGA = "https://opengameart.org/sites/default/files/";
     const lofiPlaylist = [
         { title: "Floater", artist: "Auxjack", src: "playlist/Floater.mp3" },
         { title: "Jazzy Wave", artist: "yourneighborsclassicbeats", src: "playlist/Jazzy Wave.mp3" },
         { title: "Deep Sea Treasures", artist: "sleepsleepsleep", src: "playlist/Deep Sea Treasures.mp3" },
         { title: "Chill", artist: "sleepsleepsleep", src: "playlist/Chill.mp3" },
         { title: "Rude", artist: "Eternal Youth", src: "playlist/Rude.mp3" },
+
+        { title: "Chill Lofi Inspired", artist: "omfgdude", src: OGA + "ChillLofiR_0.mp3", source: "https://opengameart.org/content/chill-lofi-inspired" },
+        { title: "Dimly Lit", artist: "iamoneabe", src: OGA + "dimlylit_0.mp3", source: "https://opengameart.org/content/dimly-lit" },
+        { title: "Quickie Trix", artist: "iamoneabe", src: OGA + "quickietrix_0.mp3", source: "https://opengameart.org/content/quickie-trix" },
+        { title: "WiFi Trasherino", artist: "Sudocolon", src: OGA + "WiFi%20Trasherino_0.mp3", source: "https://opengameart.org/content/wifi-trasherino" },
+        { title: "Cue", artist: "Tad", src: OGA + "Cue_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Bartender", artist: "Tad", src: OGA + "Bartender_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Cat Caffe", artist: "Tad", src: OGA + "Cat%20caffe_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Rainy Forest", artist: "Tad", src: OGA + "Rainy%20Forest_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Countryside", artist: "Tad", src: OGA + "Countryside_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Oceanside", artist: "Tad", src: OGA + "Oceanside_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
+        { title: "Florist", artist: "Tad", src: OGA + "Florist_0.mp3", source: "https://opengameart.org/content/lofi-compilation" },
     ];
 
     // ---------- Elements ----------
@@ -38,7 +54,8 @@
     const progress = $("progress");
     const tCur = $("time-current");
     const tTot = $("time-total");
-    const songTitle = $("song-title");
+    const songSelect = $("song-select");
+    const trackCredit = $("track-credit");
     const scotusVol = $("scotus-volume");
     const lofiVol = $("lofi-volume");
     const scotusMute = $("scotus-mute");
@@ -180,23 +197,49 @@
     $("fwd-btn").addEventListener("click", () => seekBy(15));
 
     // ---------- Music ----------
+    lofiPlaylist.forEach((s, i) => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = `${s.title} · ${s.artist}`;
+        songSelect.appendChild(opt);
+    });
+
     function loadSong(index, { autoplay = isPlaying } = {}) {
         songIndex = clampIndex(index, lofiPlaylist.length);
         const s = lofiPlaylist[songIndex];
         lofi.src = s.src;
-        songTitle.innerHTML = "";
-        songTitle.append(s.title + " ");
-        const artist = document.createElement("span");
-        artist.className = "artist";
-        artist.textContent = `· ${s.artist}`;
-        songTitle.append(artist);
-        songTitle.title = `${s.title} by ${s.artist}`;
+        songSelect.value = songIndex;
+        songSelect.title = `${s.title} by ${s.artist}`;
+
+        // Credit line in the footer for tracks that came from a public source
+        trackCredit.textContent = "";
+        if (s.source) {
+            trackCredit.append("Music: ");
+            const a = document.createElement("a");
+            a.href = s.source;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.textContent = `${s.title} by ${s.artist}`;
+            trackCredit.append(a, " (CC0).");
+        }
         if (autoplay) lofi.play().catch(() => {});
     }
     const nextSong = () => loadSong(songIndex + 1);
 
-    lofi.addEventListener("ended", nextSong);
-    lofi.addEventListener("error", nextSong);
+    songSelect.addEventListener("change", (e) => {
+        failedInARow = 0;
+        loadSong(e.target.value);
+    });
+
+    lofi.addEventListener("ended", () => { failedInARow = 0; nextSong(); });
+    lofi.addEventListener("playing", () => { failedInARow = 0; });
+    // Skip tracks that fail to load, but give up after a full lap so we never loop forever.
+    let failedInARow = 0;
+    lofi.addEventListener("error", () => {
+        if (!lofi.getAttribute("src")) return;
+        failedInARow += 1;
+        if (failedInARow < lofiPlaylist.length) nextSong();
+    });
     $("skip-btn").addEventListener("click", () => {
         if (isPlaying) nextSong();
         else { loadSong(songIndex + 1, { autoplay: false }); play(); }
