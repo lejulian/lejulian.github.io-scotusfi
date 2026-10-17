@@ -1,207 +1,299 @@
-// Audio Elements
-const SCOTUSAudio = document.getElementById('scotus-audio');
-const lofiAudio = document.getElementById('lofi-audio');
+/* SCOTUS Radio — lofi oral arguments */
+(() => {
+    "use strict";
 
-// Play/Pause Button Elements
-const playPauseBtn = document.getElementById('play-pause-btn');
-const playPauseIcon = document.getElementById('play-pause-icon');
-const skipBtn = document.getElementById('skip-btn');
+    // ---------- Data ----------
+    // To add a case: copy a line, change the name and the docket number in the URL.
+    const radioChannels = [
+        { name: "Trump v. CASA", src: "https://www.supremecourt.gov/media/audio/mp3files/24A884.mp3" },
+        { name: "Medina v. Planned Parenthood South Atlantic", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1275.mp3" },
+        { name: "Ames v. Ohio Dept. of Youth Services", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1039.mp3" },
+        { name: "TikTok, Inc. v. Garland", src: "https://www.supremecourt.gov/media/audio/mp3files/24-656.mp3" },
+        { name: "FDA v. Wages and White Lion", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1038.mp3" },
+        { name: "United States v. Miller", src: "https://www.supremecourt.gov/media/audio/mp3files/23-824.mp3" },
+        { name: "Hungary v. Simon", src: "https://www.supremecourt.gov/media/audio/mp3files/23-867.mp3" },
+        { name: "United States v. Skrmetti", src: "https://www.supremecourt.gov/media/audio/mp3files/23-477.mp3" },
+        { name: "Kousisis v. United States", src: "https://www.supremecourt.gov/media/audio/mp3files/23-909.mp3" },
+        { name: "Feliciano v. Dept. of Transportation", src: "https://www.supremecourt.gov/media/audio/mp3files/23-861.mp3" },
+        { name: "Seven County Coalition v. Eagle County", src: "https://www.supremecourt.gov/media/audio/mp3files/23-975.mp3" },
+        { name: "Dewberry Group, Inc. v. Dewberry Engineers Inc.", src: "https://www.supremecourt.gov/media/audio/mp3files/23-900.mp3" },
+    ];
 
+    const lofiPlaylist = [
+        { title: "Floater", artist: "Auxjack", src: "playlist/Floater.mp3" },
+        { title: "Jazzy Wave", artist: "yourneighborsclassicbeats", src: "playlist/Jazzy Wave.mp3" },
+        { title: "Deep Sea Treasures", artist: "sleepsleepsleep", src: "playlist/Deep Sea Treasures.mp3" },
+        { title: "Chill", artist: "sleepsleepsleep", src: "playlist/Chill.mp3" },
+        { title: "Rude", artist: "Eternal Youth", src: "playlist/Rude.mp3" },
+    ];
 
-// Volume Control Sliders
-const SCOTUSVolume = document.getElementById('scotus-volume');
-const lofiVolume = document.getElementById('lofi-volume');
+    // ---------- Elements ----------
+    const $ = (id) => document.getElementById(id);
+    const scotus = $("scotus-audio");
+    const lofi = $("lofi-audio");
+    const playBtn = $("play-pause-btn");
+    const select = $("channel-select");
+    const docketLink = $("docket-link");
+    const statusEl = $("case-status");
+    const progress = $("progress");
+    const tCur = $("time-current");
+    const tTot = $("time-total");
+    const songTitle = $("song-title");
+    const scotusVol = $("scotus-volume");
+    const lofiVol = $("lofi-volume");
+    const scotusMute = $("scotus-mute");
+    const lofiMute = $("lofi-mute");
 
-// Current Song Display
-const songTitle = document.getElementById('song-title');
+    // ---------- Saved preferences ----------
+    const store = {
+        get(key, fallback) {
+            try { const v = localStorage.getItem("scotusfi." + key); return v === null ? fallback : JSON.parse(v); }
+            catch { return fallback; }
+        },
+        set(key, value) {
+            try { localStorage.setItem("scotusfi." + key, JSON.stringify(value)); } catch { /* storage unavailable */ }
+        },
+    };
 
+    let caseIndex = clampIndex(store.get("case", 0), radioChannels.length);
+    let songIndex = Math.floor(Math.random() * lofiPlaylist.length);
+    let isPlaying = false;
+    let isSeeking = false;
+    let hour12 = store.get("hour12", false);
 
+    function clampIndex(i, len) { i = Number(i) || 0; return ((i % len) + len) % len; }
+    const docketOf = (src) => src.split("/").pop().replace(/\.mp3$/i, "");
 
-// Lofi Playlist
-const lofiPlaylist = [
-    { title: "Floater - Auxjack", src: "playlist/Floater.mp3" },
-    { title: "Jazzy Wave - yourneighborsclassicbeats", src: "playlist/Jazzy Wave.mp3" },
-    { title: "Deep Sea Treasures - sleepsleepsleep", src: "playlist/Deep Sea Treasures.mp3" },
-    { title: "Chill - sleepsleepsleep", src: "playlist/Chill.mp3" },
-    { title: "Rude - Eternal Youth", src: "playlist/Rude.mp3" },
-];
-
-// Track the current song index
-let currentSongIndex = 0;
-let isPlaying = false; // Track whether audio is playing
-
-
-
-
-// Load the current song from the playlist
-function loadSong(index) {
-    lofiAudio.src = lofiPlaylist[index].src; // Set the audio source
-    songTitle.textContent = lofiPlaylist[index].title ; // Update the displayed title
-}
-
-// Play the next song when the current one ends
-function playNextSong() {
-    currentSongIndex = (currentSongIndex + 1) % lofiPlaylist.length; // Loop back to the start
-    loadSong(currentSongIndex);
-    lofiAudio.play();
-}
-
-// Attach the 'ended' event listener to play the next song
-lofiAudio.addEventListener('ended', playNextSong);
-
-// Initialize the playlist on page load
-loadSong(currentSongIndex);
-
-// Play/Pause functionality
-playPauseBtn.addEventListener('click', () => {
-    if (!isPlaying) {
-        SCOTUSAudio.play();
-        lofiAudio.play();
-        playPauseIcon.src = 'images/pauseiconfill.png'; // Change icon to "Pause"
-        playPauseIcon.alt = 'Pause';
-    } else {
-        SCOTUSAudio.pause();
-        lofiAudio.pause();
-        playPauseIcon.src = 'images/playiconfill.png'; // Change icon to "Play"
-        playPauseIcon.alt = 'Play';
-    }
-    isPlaying = !isPlaying; // Toggle play state
-});
-
-skipBtn.addEventListener('click', () => {
-    playNextSong(); // Call the playNextSong function
-    if (!isPlaying) {
-        // If playback isn't active, start playback
-        lofiAudio.play();
-        SCOTUSAudio.play();
-        playPauseIcon.src = 'images/pauseiconfill.png'; // Change icon to "Pause"
-        playPauseIcon.alt = 'Pause';
-        isPlaying = true; // Update the playback state
-    }
-});
-
-// Adjust volume for weather audio
-SCOTUSVolume.addEventListener('input', (e) => {
-    SCOTUSAudio.volume = e.target.value;
-});
-
-// Adjust volume for lofi audio
-lofiVolume.addEventListener('input', (e) => {
-    lofiAudio.volume = e.target.value;
-});
-
-// Function to update the clock
-function updateClock() {
-    const clockElement = document.getElementById('clock');
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    clockElement.textContent = `${hours}:${minutes}`; // Display time in HH:MM format
-}
-const clock = document.getElementById('clock');
-
-
-// Update the clock text dynamically
-function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    clock.textContent = `${hours}:${minutes}`;
-    clock.setAttribute('data-time', `${hours}:${minutes}`); // For chromatic effect
-}
-
-// Update the clock every second
-setInterval(updateClock, 1000);
-updateClock(); // Initialize on page load
-
-// Select all sliders
-const sliders = document.querySelectorAll('input[type="range"]');
-
-// Function to update the slider's gradient based on its value
-const updateSliderBackground = (slider) => {
-    const value = (slider.value / slider.max) * 100; // Calculate percentage
-    slider.style.background = `linear-gradient(to right, white ${value}%, rgba(0, 0, 0, 0.2) ${value}%)`; // Update gradient
-};
-
-// Attach event listener to dynamically update the background
-sliders.forEach(slider => {
-    // Initialize background on page load
-    updateSliderBackground(slider);
-
-    // Update background dynamically on input (thumb movement)
-    slider.addEventListener('input', () => updateSliderBackground(slider));
-});
-
-SCOTUSVolume.addEventListener('input', (e) => {
-    SCOTUSAudio.volume = e.target.value;
-});
-
-lofiVolume.addEventListener('input', (e) => {
-    lofiAudio.volume = e.target.value;
-});
-
-// Add change events for better mobile support
-SCOTUSVolume.addEventListener('change', (e) => {
-    SCOTUSAudio.volume = e.target.value;
-});
-
-lofiVolume.addEventListener('change', (e) => {
-    lofiAudio.volume = e.target.value;
-});
-
-
-// Array of radio channels
-const radioChannels = [
-
-    { name: "Trump v. CASA", src: "https://www.supremecourt.gov/media/audio/mp3files/24A884.mp3" },
-    { name: "Medina v. Planned Parenthood South Atlantic", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1275.mp3" },    
-    { name: "Ames v. OH Dept. of Youth Services", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1039.mp3" },    
-    { name: "TikTok, Inc. v. Garland", src: "https://www.supremecourt.gov/media/audio/mp3files/24-656.mp3" },
-    { name: "FDA v. Wages and White Lion", src: "https://www.supremecourt.gov/media/audio/mp3files/23-1038.mp3" },
-    { name: "United States v. Miller", src: "https://www.supremecourt.gov/media/audio/mp3files/23-824.mp3" },  
-    { name: "Hungary v. Simon", src: "https://www.supremecourt.gov/media/audio/mp3files/23-867.mp3" },
-    { name: "United States v. Skrmetti", src: "https://www.supremecourt.gov/media/audio/mp3files/23-477.mp3" },
-    { name: "Kousisis v. United States", src: "https://www.supremecourt.gov/media/audio/mp3files/23-909.mp3" },
-    { name: "Feliciano v. Dept. of Transportation", src: "https://www.supremecourt.gov/media/audio/mp3files/23-861.mp3" },
-    { name: "Seven County Coalition v. Eagle County", src: "https://www.supremecourt.gov/media/audio/mp3files/23-975.mp3" },
-    { name: "Dewberry Group, Inc. v. Dewberry Engineers Inc.", src: "https://www.supremecourt.gov/media/audio/mp3files/23-900.mp3" }
- ]
-
-// Select the dropdown and audio element
-const channelSelect = document.getElementById("channel-select");
-const argumentAudio = document.getElementById("scotus-audio");
-
-// Populate the dropdown menu
-radioChannels.forEach((channel, index) => {
-    const option = document.createElement("option");
-    option.value = index; // Use the index to identify the channel
-    option.textContent = channel.name; // Display the channel name
-    channelSelect.appendChild(option);
-});
-
-// Function to change the radio channel
-function changeChannel(index) {
-    const selectedChannel = radioChannels[index];
-    if (selectedChannel) {
-        argumentAudio.src = selectedChannel.src; // Update the audio source
+    // ---------- Helpers ----------
+    function fmt(sec) {
+        if (!isFinite(sec) || sec < 0) return "--:--";
+        sec = Math.floor(sec);
+        const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+        return h ? `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}` : `${m}:${String(s).padStart(2, "0")}`;
     }
 
-    if (isPlaying) {
-        // If playback isn't active, start playback
-        lofiAudio.play();
-        SCOTUSAudio.play();
-        playPauseIcon.src = 'images/pauseiconfill.png'; // Change icon to "Pause"
-        playPauseIcon.alt = 'Pause';
-        isPlaying = true; // Update the playback state
+    function paintRange(input) {
+        const min = Number(input.min) || 0, max = Number(input.max) || 1;
+        input.style.setProperty("--fill", `${((input.value - min) / (max - min)) * 100}%`);
     }
-}
 
-// Listen for selection changes
-channelSelect.addEventListener("change", (e) => {
-    changeChannel(e.target.value);
-});
+    function setStatus(text, isError = false) {
+        statusEl.textContent = text;
+        statusEl.classList.toggle("is-error", isError);
+    }
 
-// Initialize the first channel
-changeChannel(0); // Default to the first channel
+    function setPlayingUI(playing) {
+        playBtn.classList.toggle("is-playing", playing);
+        playBtn.setAttribute("aria-label", playing ? "Pause" : "Play");
+        document.title = playing ? `▶ ${radioChannels[caseIndex].name} · SCOTUS Radio` : "SCOTUS Radio · lofi oral arguments";
+        if ("mediaSession" in navigator) navigator.mediaSession.playbackState = playing ? "playing" : "paused";
+    }
 
+    // ---------- Playback ----------
+    async function play() {
+        isPlaying = true;
+        setPlayingUI(true);
+        const results = await Promise.allSettled([scotus.play(), lofi.play()]);
+        // If the browser blocked playback entirely, reflect that.
+        if (results.every((r) => r.status === "rejected")) {
+            isPlaying = false;
+            setPlayingUI(false);
+        }
+    }
 
+    function pause() {
+        isPlaying = false;
+        scotus.pause();
+        lofi.pause();
+        setPlayingUI(false);
+    }
+
+    const toggle = () => (isPlaying ? pause() : play());
+
+    // ---------- Cases ----------
+    radioChannels.forEach((c, i) => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = c.name;
+        select.appendChild(opt);
+    });
+
+    function loadCase(index, { autoplay = isPlaying } = {}) {
+        caseIndex = clampIndex(index, radioChannels.length);
+        const c = radioChannels[caseIndex];
+        select.value = caseIndex;
+        scotus.src = c.src;
+        const docket = docketOf(c.src);
+        docketLink.textContent = `Docket ${docket}`;
+        docketLink.href = `https://www.supremecourt.gov/docket/docketfiles/html/public/${docket}.html`;
+        progress.value = 0;
+        progress.disabled = true;
+        paintRange(progress);
+        tCur.textContent = "0:00";
+        tTot.textContent = "--:--";
+        setStatus("");
+        store.set("case", caseIndex);
+        updateMediaSession();
+        if (autoplay) play(); else setPlayingUI(false);
+    }
+
+    select.addEventListener("change", (e) => loadCase(e.target.value));
+    $("prev-case").addEventListener("click", () => loadCase(caseIndex - 1));
+    $("next-case").addEventListener("click", () => loadCase(caseIndex + 1));
+
+    scotus.addEventListener("loadedmetadata", () => {
+        tTot.textContent = fmt(scotus.duration);
+        progress.disabled = !isFinite(scotus.duration);
+    });
+    scotus.addEventListener("timeupdate", () => {
+        if (isSeeking || !isFinite(scotus.duration)) return;
+        progress.value = (scotus.currentTime / scotus.duration) * 1000;
+        paintRange(progress);
+        tCur.textContent = fmt(scotus.currentTime);
+    });
+    scotus.addEventListener("waiting", () => { if (isPlaying) { playBtn.classList.add("is-loading"); setStatus("Loading…"); } });
+    scotus.addEventListener("playing", () => { playBtn.classList.remove("is-loading"); setStatus(""); });
+    scotus.addEventListener("canplay", () => { playBtn.classList.remove("is-loading"); if (!statusEl.classList.contains("is-error")) setStatus(""); });
+    scotus.addEventListener("error", () => {
+        playBtn.classList.remove("is-loading");
+        setStatus("This recording didn't load. Try another case.", true);
+    });
+    // When an argument finishes, move on to the next one.
+    scotus.addEventListener("ended", () => loadCase(caseIndex + 1, { autoplay: true }));
+
+    // Scrubbing
+    progress.addEventListener("input", () => {
+        isSeeking = true;
+        paintRange(progress);
+        tCur.textContent = fmt((progress.value / 1000) * scotus.duration);
+    });
+    progress.addEventListener("change", () => {
+        if (isFinite(scotus.duration)) scotus.currentTime = (progress.value / 1000) * scotus.duration;
+        isSeeking = false;
+    });
+
+    function seekBy(sec) {
+        if (!isFinite(scotus.duration)) return;
+        scotus.currentTime = Math.min(Math.max(scotus.currentTime + sec, 0), scotus.duration - 0.5);
+    }
+    $("back-btn").addEventListener("click", () => seekBy(-15));
+    $("fwd-btn").addEventListener("click", () => seekBy(15));
+
+    // ---------- Music ----------
+    function loadSong(index, { autoplay = isPlaying } = {}) {
+        songIndex = clampIndex(index, lofiPlaylist.length);
+        const s = lofiPlaylist[songIndex];
+        lofi.src = s.src;
+        songTitle.innerHTML = "";
+        songTitle.append(s.title + " ");
+        const artist = document.createElement("span");
+        artist.className = "artist";
+        artist.textContent = `· ${s.artist}`;
+        songTitle.append(artist);
+        songTitle.title = `${s.title} by ${s.artist}`;
+        if (autoplay) lofi.play().catch(() => {});
+    }
+    const nextSong = () => loadSong(songIndex + 1);
+
+    lofi.addEventListener("ended", nextSong);
+    lofi.addEventListener("error", nextSong);
+    $("skip-btn").addEventListener("click", () => {
+        if (isPlaying) nextSong();
+        else { loadSong(songIndex + 1, { autoplay: false }); play(); }
+    });
+
+    // ---------- Mixer ----------
+    function bindFader(input, audio, muteBtn, key) {
+        input.value = store.get(key + "Vol", input.value);
+        audio.volume = input.value;
+        audio.muted = store.get(key + "Muted", false);
+        muteBtn.setAttribute("aria-pressed", String(audio.muted));
+        paintRange(input);
+
+        input.addEventListener("input", () => {
+            audio.volume = input.value;
+            if (audio.muted && Number(input.value) > 0) {
+                audio.muted = false;
+                muteBtn.setAttribute("aria-pressed", "false");
+                store.set(key + "Muted", false);
+            }
+            paintRange(input);
+            store.set(key + "Vol", Number(input.value));
+        });
+        muteBtn.addEventListener("click", () => {
+            audio.muted = !audio.muted;
+            muteBtn.setAttribute("aria-pressed", String(audio.muted));
+            store.set(key + "Muted", audio.muted);
+        });
+    }
+    bindFader(scotusVol, scotus, scotusMute, "scotus");
+    bindFader(lofiVol, lofi, lofiMute, "lofi");
+
+    playBtn.addEventListener("click", toggle);
+
+    // ---------- Clock ----------
+    const clockTime = $("clock-time");
+    const clockPeriod = $("clock-period");
+    function tick() {
+        const now = new Date();
+        let h = now.getHours();
+        const m = String(now.getMinutes()).padStart(2, "0");
+        if (hour12) {
+            clockPeriod.textContent = h < 12 ? "am" : "pm";
+            h = h % 12 || 12;
+            clockTime.textContent = `${h}:${m}`;
+        } else {
+            clockPeriod.textContent = "";
+            clockTime.textContent = `${String(h).padStart(2, "0")}:${m}`;
+        }
+    }
+    $("clock").addEventListener("click", () => { hour12 = !hour12; store.set("hour12", hour12); tick(); });
+    tick();
+    setInterval(tick, 1000);
+
+    // ---------- Keyboard ----------
+    document.addEventListener("keydown", (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const tag = e.target.tagName;
+        const inRange = tag === "INPUT" && e.target.type === "range";
+        if (tag === "SELECT" || (tag === "INPUT" && !inRange) || tag === "TEXTAREA") return;
+
+        switch (e.key) {
+            case " ":
+            case "k":
+                if (tag === "BUTTON" && e.key === " ") return; // let buttons handle their own space
+                e.preventDefault(); toggle(); break;
+            case "ArrowLeft":  if (!inRange) { e.preventDefault(); seekBy(-15); } break;
+            case "ArrowRight": if (!inRange) { e.preventDefault(); seekBy(15); } break;
+            case "n": case "N": $("skip-btn").click(); break;
+            case "[": loadCase(caseIndex - 1); break;
+            case "]": loadCase(caseIndex + 1); break;
+            case "m": case "M": scotusMute.click(); break;
+        }
+    });
+
+    // ---------- Lock screen / media keys ----------
+    function updateMediaSession() {
+        if (!("mediaSession" in navigator)) return;
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: radioChannels[caseIndex].name,
+            artist: "Supreme Court of the United States",
+            album: "SCOTUS Radio",
+            artwork: [{ src: "images/2.jpg", sizes: "4800x3200", type: "image/jpeg" }],
+        });
+    }
+    if ("mediaSession" in navigator) {
+        const ms = navigator.mediaSession;
+        const set = (a, fn) => { try { ms.setActionHandler(a, fn); } catch { /* unsupported */ } };
+        set("play", play);
+        set("pause", pause);
+        set("previoustrack", () => loadCase(caseIndex - 1));
+        set("nexttrack", () => loadCase(caseIndex + 1));
+        set("seekbackward", () => seekBy(-15));
+        set("seekforward", () => seekBy(15));
+    }
+
+    // ---------- Init ----------
+    loadCase(caseIndex, { autoplay: false });
+    loadSong(songIndex, { autoplay: false });
+})();

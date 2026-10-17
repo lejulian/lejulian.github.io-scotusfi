@@ -2,68 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOTUS Radio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400&display=swap" rel="stylesheet">
-    <title>lofi SCOTUS arguments</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SCOTUS Radio · lofi oral arguments</title>
+    <meta name="description" content="Supreme Court oral arguments over lofi beats. Pick a case, set the mix, and study or relax.">
+    <meta name="theme-color" content="#1a0708">
 
+    <meta property="og:title" content="SCOTUS Radio">
+    <meta property="og:description" content="Lofi oral arguments to study and relax to.">
+    <meta property="og:image" content="https://scotusfi.com/images/2.jpg">
+    <meta property="og:url" content="https://scotusfi.com/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23ebddc3' stroke='%23c9a15a' stroke-width='5'/%3E%3Cpath d='M32 14v18l11 7' stroke='%231a0708' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Audio Sources -->
-    <audio id="scotus-audio" src="https://www.supremecourt.gov/oral_arguments/audio/2024/23-824" preload="auto"></audio>
-    <audio loop id="lofi-audio" preload="auto"></audio> <!-- Dynamically controlled -->
+    <div class="backdrop" aria-hidden="true"></div>
 
-    <div id="clock"></div>
+    <header class="masthead">
+        <h1 class="brand">SCOTUS Radio</h1>
+        <p class="tagline">lofi arguments to study/relax to</p>
+    </header>
 
-    <p id="middle-text"></p>
-
-    <!-- Current Song Display -->
-     <div id="channel-selector-group">
-
-
-        <div id="radio-selector">
-            <label for="channel-select"></label>
-            <select id="channel-select">
-                <!-- Options will be populated dynamically -->
-            </select>
-        </div>
-
-
-        <p id="current-song">
-            <span id="song-title">Loading Music...</span>
-        
-    </div>
-    </p>
-    <div id="control-buttons">
-        <button id="play-pause-btn">
-            <img id="play-pause-icon" src="images/playiconfill.png" alt="Play">
+    <main class="stage">
+        <button id="clock" class="clock" type="button" title="Switch between 12- and 24-hour time" aria-label="Current time. Click to switch between 12- and 24-hour format.">
+            <span id="clock-time">--:--</span><span id="clock-period" class="clock-period"></span>
         </button>
-    
-        <button id="skip-btn">
-            <img id="skip-icon" src="images/skip.png" alt="Skip">
-        </button>
-    </div>
 
-    
-    
-    
+        <section class="console" aria-label="Player">
+            <!-- Argument -->
+            <div class="case">
+                <div class="case-picker">
+                    <button id="prev-case" class="icon-btn" type="button" aria-label="Previous case" title="Previous case ( [ )">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                    </button>
 
-    <!-- Controls -->
-    <div id="audio-controls">
-        <p id="scotus-volume-text" style="color: white;">SCOTUS Volume</p>
-        <input id="scotus-volume" type="range" min="0" max="1" step="0.1" value="1" aria-label="scotus Volume">
-        <p id="lofi-volume-text" style="color: white;">Lofi Volume</p>
-        <input id="lofi-volume" type="range" min="0" max="1" step="0.1" value="1" aria-label="Lofi Volume">
-    </div>
+                    <div class="select-wrap">
+                        <label for="channel-select" class="visually-hidden">Choose an oral argument</label>
+                        <select id="channel-select"></select>
+                        <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                    </div>
+
+                    <button id="next-case" class="icon-btn" type="button" aria-label="Next case" title="Next case ( ] )">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <p class="case-meta">
+                    <a id="docket-link" href="#" target="_blank" rel="noopener">Docket</a>
+                    <span id="case-status" class="case-status" role="status" aria-live="polite"></span>
+                </p>
+
+                <div class="scrubber">
+                    <span id="time-current" class="time">0:00</span>
+                    <input id="progress" class="progress" type="range" min="0" max="1000" step="1" value="0" aria-label="Argument position" disabled>
+                    <span id="time-total" class="time">--:--</span>
+                </div>
+            </div>
+
+            <!-- Transport -->
+            <div class="transport">
+                <button id="back-btn" class="icon-btn" type="button" aria-label="Back 15 seconds" title="Back 15 s ( ← )">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 3v4.5h4.5"/><text x="12" y="15.5" text-anchor="middle">15</text></svg>
+                </button>
+
+                <button id="play-pause-btn" class="play" type="button" aria-label="Play" title="Play / pause ( space )">
+                    <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+                    <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg>
+                </button>
+
+                <button id="fwd-btn" class="icon-btn" type="button" aria-label="Forward 15 seconds" title="Forward 15 s ( → )">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 3v4.5h-4.5"/><text x="12" y="15.5" text-anchor="middle">15</text></svg>
+                </button>
+            </div>
+
+            <!-- Music -->
+            <div class="track">
+                <svg class="note" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                <p id="song-title" class="song-title" aria-live="polite">Loading music…</p>
+                <button id="skip-btn" class="text-btn" type="button" title="Next track ( N )">Next track</button>
+            </div>
+
+            <!-- Mix -->
+            <div class="mixer">
+                <div class="fader">
+                    <button id="scotus-mute" class="fader-label" type="button" aria-pressed="false" title="Mute or unmute the argument">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>
+                        <span>Argument</span>
+                    </button>
+                    <input id="scotus-volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Argument volume">
+                </div>
+                <div class="fader">
+                    <button id="lofi-mute" class="fader-label" type="button" aria-pressed="false" title="Mute or unmute the music">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                        <span>Music</span>
+                    </button>
+                    <input id="lofi-volume" type="range" min="0" max="1" step="0.01" value="0.6" aria-label="Music volume">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="colophon">
+        <p class="keys" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> seek <kbd>N</kbd> next track <kbd>[</kbd><kbd>]</kbd> change case</p>
+        <p>Audio from the <a href="https://www.supremecourt.gov/oral_arguments/argument_audio.aspx" target="_blank" rel="noopener">Supreme Court of the United States</a>.</p>
+    </footer>
+
+    <audio id="scotus-audio" preload="metadata"></audio>
+    <audio id="lofi-audio" preload="auto"></audio>
 
     <script src="script.js"></script>
-
-    <div id="top-left-text">SCOTUS RADIO</div>
-    <div id="top-left-subtext">lofi arguments to study/relax to</div>
-    
-
 </body>
 </html>
