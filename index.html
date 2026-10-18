@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SCOTUS Radio · lofi oral arguments</title>
-    <meta name="description" content="Supreme Court oral arguments over lofi beats. Pick a case, set the mix, and study or relax.">
+    <meta name="description" content="This term's Supreme Court oral arguments over lofi beats. Pick a case, set the mix, and study or relax.">
     <meta name="theme-color" content="#1a0708">
 
     <meta property="og:title" content="SCOTUS Radio">
@@ -17,7 +17,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,62 +28,46 @@
         <p class="tagline">lofi arguments to study/relax to</p>
     </header>
 
-    <main class="stage">
-        <button id="clock" class="clock" type="button" title="Switch between 12- and 24-hour time" aria-label="Current time. Click to switch between 12- and 24-hour format.">
-            <span id="clock-time">--:--</span><span id="clock-period" class="clock-period"></span>
-        </button>
+    <main class="layout">
+        <!-- Now playing -->
+        <section class="player" aria-labelledby="case-name">
+            <p id="case-date" class="case-date">&nbsp;</p>
+            <h2 id="case-name" class="case-name" aria-live="polite">Loading arguments…</h2>
 
-        <section class="console" aria-label="Player">
-            <!-- Argument -->
-            <div class="case">
-                <div class="case-picker">
-                    <button id="prev-case" class="icon-btn" type="button" aria-label="Previous case" title="Previous case ( [ )">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    </button>
+            <p class="case-links">
+                <a id="docket-link" href="#" target="_blank" rel="noopener" hidden>Docket</a>
+                <a id="transcript-link" href="#" target="_blank" rel="noopener" hidden>Transcript</a>
+                <span id="case-status" class="case-status" role="status"></span>
+            </p>
 
-                    <div class="select-wrap">
-                        <label for="channel-select" class="visually-hidden">Choose an oral argument</label>
-                        <select id="channel-select"></select>
-                        <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                    </div>
-
-                    <button id="next-case" class="icon-btn" type="button" aria-label="Next case" title="Next case ( ] )">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
-
-                <p class="case-meta">
-                    <a id="docket-link" href="#" target="_blank" rel="noopener">Docket</a>
-                    <span id="case-status" class="case-status" role="status" aria-live="polite"></span>
-                </p>
-
-                <div class="scrubber">
-                    <span id="time-current" class="time">0:00</span>
-                    <input id="progress" class="progress" type="range" min="0" max="1000" step="1" value="0" aria-label="Argument position" disabled>
-                    <span id="time-total" class="time">--:--</span>
-                </div>
+            <div class="scrubber">
+                <span id="time-current" class="time">0:00</span>
+                <input id="progress" class="progress" type="range" min="0" max="1000" step="1" value="0" aria-label="Argument position" disabled>
+                <span id="time-total" class="time">--:--</span>
             </div>
 
-            <!-- Transport -->
             <div class="transport">
+                <button id="prev-case" class="icon-btn" type="button" aria-label="Previous case" title="Previous case ( [ )">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14"/><path d="M18 5.5v13L9 12z" class="solid"/></svg>
+                </button>
                 <button id="back-btn" class="icon-btn" type="button" aria-label="Back 15 seconds" title="Back 15 s ( ← )">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 3v4.5h4.5"/><text x="12" y="15.5" text-anchor="middle">15</text></svg>
                 </button>
-
                 <button id="play-pause-btn" class="play" type="button" aria-label="Play" title="Play / pause ( space )">
                     <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
                     <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg>
                 </button>
-
                 <button id="fwd-btn" class="icon-btn" type="button" aria-label="Forward 15 seconds" title="Forward 15 s ( → )">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 3v4.5h-4.5"/><text x="12" y="15.5" text-anchor="middle">15</text></svg>
                 </button>
+                <button id="next-case" class="icon-btn" type="button" aria-label="Next case" title="Next case ( ] )">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14"/><path d="M6 5.5v13l9-6.5z" class="solid"/></svg>
+                </button>
             </div>
 
-            <!-- Music -->
             <div class="track">
                 <svg class="note" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
-                <div class="select-wrap song-wrap">
+                <div class="select-wrap">
                     <label for="song-select" class="visually-hidden">Choose a music track</label>
                     <select id="song-select" class="song-select"></select>
                     <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
@@ -91,11 +75,10 @@
                 <button id="skip-btn" class="text-btn" type="button" title="Next track ( N )">Next track</button>
             </div>
 
-            <!-- Mix -->
             <div class="mixer">
                 <div class="fader">
-                    <button id="scotus-mute" class="fader-label" type="button" aria-pressed="false" title="Mute or unmute the argument">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>
+                    <button id="scotus-mute" class="fader-label" type="button" aria-pressed="false" title="Mute or unmute the argument ( M )">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>
                         <span>Argument</span>
                     </button>
                     <input id="scotus-volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Argument volume">
@@ -109,10 +92,22 @@
                 </div>
             </div>
         </section>
+
+        <!-- Argument list -->
+        <aside class="docket" aria-labelledby="docket-title">
+            <div class="docket-head">
+                <h2 id="docket-title" class="docket-title">Arguments</h2>
+                <div id="term-tabs" class="term-tabs" role="tablist" aria-label="Term"></div>
+            </div>
+            <div id="case-list" class="case-list" role="tabpanel" aria-labelledby="docket-title">
+                <p class="list-empty">Loading this term's arguments…</p>
+            </div>
+            <p id="list-updated" class="list-updated"></p>
+        </aside>
     </main>
 
     <footer class="colophon">
-        <p class="keys" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> seek <kbd>N</kbd> next track <kbd>[</kbd><kbd>]</kbd> change case</p>
+        <p class="keys" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> seek <kbd>[</kbd><kbd>]</kbd> change case <kbd>N</kbd> next track</p>
         <p>Arguments from the <a href="https://www.supremecourt.gov/oral_arguments/argument_audio.aspx" target="_blank" rel="noopener">Supreme Court of the United States</a>. <span id="track-credit"></span></p>
     </footer>
 

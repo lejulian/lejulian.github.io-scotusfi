@@ -1,0 +1,42 @@
+name: Update argument list
+
+# Pulls the current and previous term's oral arguments from supremecourt.gov
+# into cases.json, which the site loads. Runs every morning, or on demand from
+# the Actions tab ("Run workflow").
+on:
+  schedule:
+    - cron: "23 11 * * *" # about 7:23 am Eastern
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-cases
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch arguments
+        run: python scripts/update_cases.py
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- cases.json; then
+            echo "cases.json unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898237+github-actions[bot]@users.noreply.github.com"
+          git add cases.json
+          git commit -m "Update argument list"
+          git push
