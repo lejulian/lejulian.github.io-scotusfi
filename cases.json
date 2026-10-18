@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T14:38:41+00:00",
+  "updated": "2026-10-18T14:51:10+00:00",
   "source": "https://www.supremecourt.gov/oral_arguments/argument_audio.aspx",
   "terms": [
     {
@@ -11,8 +11,8 @@
           "date": "2026-10-14",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-459",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-459.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-459_i425.pdf",
+          "checked": true
         },
         {
           "docket": "25-5343",
@@ -20,8 +20,8 @@
           "date": "2026-10-13",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-5343",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-5343.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-5343_d1oe.pdf",
+          "checked": true
         },
         {
           "docket": "25-579",
@@ -29,8 +29,8 @@
           "date": "2026-10-07",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-579",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-579.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-579_e29g.pdf",
+          "checked": true
         },
         {
           "docket": "25-498",
@@ -38,8 +38,8 @@
           "date": "2026-10-06",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-498",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-498.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-498_febh.pdf",
+          "checked": true
         },
         {
           "docket": "25-735",
@@ -47,8 +47,8 @@
           "date": "2026-10-05",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-735",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-735.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-735_ca7d.pdf",
+          "checked": true
         },
         {
           "docket": "25-170",
@@ -70,8 +70,8 @@
           "date": "2026-04-29",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-1083",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-1083.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-1083_0pl1.pdf",
+          "checked": true
         },
         {
           "docket": "24-889",
@@ -79,8 +79,8 @@
           "date": "2026-04-29",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-889",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-889.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-889_2024.pdf",
+          "checked": true
         },
         {
           "docket": "24-856",
@@ -88,8 +88,8 @@
           "date": "2026-04-28",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-856",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-856.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-856_3e04.pdf",
+          "checked": true
         },
         {
           "docket": "25-112",
@@ -97,8 +97,8 @@
           "date": "2026-04-27",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-112",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-112.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-112_7k47.pdf",
+          "checked": true
         },
         {
           "docket": "24-1068",
@@ -106,8 +106,8 @@
           "date": "2026-04-27",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1068",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1068.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1068_fcgj.pdf",
+          "checked": true
         },
         {
           "docket": "25-429",
@@ -115,8 +115,8 @@
           "date": "2026-04-22",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-429",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-429.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-429_3ea4.pdf",
+          "checked": true
         },
         {
           "docket": "25-406",
@@ -124,8 +124,8 @@
           "date": "2026-04-21",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-406",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-406.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-406_9ok0.pdf",
+          "checked": true
         },
         {
           "docket": "25-466",
@@ -133,8 +133,8 @@
           "date": "2026-04-20",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-466",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-466.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-466_ec8f.pdf",
+          "checked": true
         },
         {
           "docket": "25-197",
@@ -142,8 +142,8 @@
           "date": "2026-04-20",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-197",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-197.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-197_6j37.pdf",
+          "checked": true
         },
         {
           "docket": "25-365",
@@ -151,8 +151,8 @@
           "date": "2026-04-01",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-365",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-365.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-365_l6gn.pdf",
+          "checked": true
         },
         {
           "docket": "24-7351",
@@ -160,8 +160,8 @@
           "date": "2026-03-31",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-7351",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-7351.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-7351_h315.pdf",
+          "checked": true
         },
         {
           "docket": "25-83",
@@ -169,8 +169,8 @@
           "date": "2026-03-30",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-83",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-83.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-83_c0n2.pdf",
+          "checked": true
         },
         {
           "docket": "25-5146",
@@ -178,8 +178,8 @@
           "date": "2026-03-30",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-5146",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-5146.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-5146_6468.pdf",
+          "checked": true
         },
         {
           "docket": "24-935",
@@ -187,8 +187,8 @@
           "date": "2026-03-25",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-935",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-935.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-935_1qm2.pdf",
+          "checked": true
         },
         {
           "docket": "25-6",
@@ -196,8 +196,8 @@
           "date": "2026-03-24",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-6",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-6.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-6_6jfl.pdf",
+          "checked": true
         },
         {
           "docket": "25-5",
@@ -205,8 +205,8 @@
           "date": "2026-03-24",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-5",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-5.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-5_d1o2.pdf",
+          "checked": true
         },
         {
           "docket": "24-1260",
@@ -214,8 +214,8 @@
           "date": "2026-03-23",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1260",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1260.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1260_6k47.pdf",
+          "checked": true
         },
         {
           "docket": "24-1238",
@@ -223,8 +223,8 @@
           "date": "2026-03-04",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1238",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1238.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1238_2cp3.pdf",
+          "checked": true
         },
         {
           "docket": "24-1063",
@@ -232,8 +232,8 @@
           "date": "2026-03-03",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1063",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1063.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1063_5h26.pdf",
+          "checked": true
         },
         {
           "docket": "24-1234",
@@ -241,8 +241,8 @@
           "date": "2026-03-02",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1234",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1234.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1234_h31i.pdf",
+          "checked": true
         },
         {
           "docket": "25-95",
@@ -250,8 +250,8 @@
           "date": "2026-02-25",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-95",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-95.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-95_32q3.pdf",
+          "checked": true
         },
         {
           "docket": "24-783",
@@ -259,8 +259,8 @@
           "date": "2026-02-24",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-783",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-783.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-783_h315.pdf",
+          "checked": true
         },
         {
           "docket": "24-983",
@@ -268,8 +268,8 @@
           "date": "2026-02-23",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-983",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-983.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-983_9ol1.pdf",
+          "checked": true
         },
         {
           "docket": "24-699",
@@ -277,8 +277,8 @@
           "date": "2026-02-23",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-699",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-699.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-699_9o6b.pdf",
+          "checked": true
         },
         {
           "docket": "25A312",
@@ -286,8 +286,8 @@
           "date": "2026-01-21",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25A312",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25A312.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25a312_c0nd.pdf",
+          "checked": true
         },
         {
           "docket": "24-1046",
@@ -295,8 +295,8 @@
           "date": "2026-01-20",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1046",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1046.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1046_hejm.pdf",
+          "checked": true
         },
         {
           "docket": "23-1209",
@@ -304,8 +304,8 @@
           "date": "2026-01-20",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/23-1209",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/23-1209.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/23-1209_b97d.pdf",
+          "checked": true
         },
         {
           "docket": "24-1021",
@@ -313,8 +313,8 @@
           "date": "2026-01-14",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1021",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1021.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1021_g314.pdf",
+          "checked": true
         },
         {
           "docket": "24-43",
@@ -322,8 +322,8 @@
           "date": "2026-01-13",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-43",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-43.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-43_ihdj.pdf",
+          "checked": true
         },
         {
           "docket": "24-38",
@@ -331,8 +331,8 @@
           "date": "2026-01-13",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-38",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-38.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-38_bqm2.pdf",
+          "checked": true
         },
         {
           "docket": "24-813",
@@ -340,8 +340,8 @@
           "date": "2026-01-12",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-813",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-813.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-813_5426.pdf",
+          "checked": true
         },
         {
           "docket": "24-872",
@@ -349,8 +349,8 @@
           "date": "2025-12-10",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-872",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-872.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-872_b07d.pdf",
+          "checked": true
         },
         {
           "docket": "24-345",
@@ -358,8 +358,8 @@
           "date": "2025-12-10",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-345",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-345.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-345_2135.pdf",
+          "checked": true
         },
         {
           "docket": "24-621",
@@ -367,8 +367,8 @@
           "date": "2025-12-09",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-621",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-621.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-621_q86b.pdf",
+          "checked": true
         },
         {
           "docket": "25-332",
@@ -376,8 +376,8 @@
           "date": "2025-12-08",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/25-332",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-332.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/25-332_7lhn.pdf",
+          "checked": true
         },
         {
           "docket": "24-993",
@@ -385,8 +385,8 @@
           "date": "2025-12-03",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-993",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-993.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-993_1a7d.pdf",
+          "checked": true
         },
         {
           "docket": "24-781",
@@ -394,8 +394,8 @@
           "date": "2025-12-02",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-781",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-781.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-781_f2bh.pdf",
+          "checked": true
         },
         {
           "docket": "24-777",
@@ -403,8 +403,8 @@
           "date": "2025-12-01",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-777",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-777.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-777_dc8e.pdf",
+          "checked": true
         },
         {
           "docket": "24-171",
@@ -412,8 +412,8 @@
           "date": "2025-12-01",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-171",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-171.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-171_ap6c.pdf",
+          "checked": true
         },
         {
           "docket": "24-820",
@@ -421,8 +421,8 @@
           "date": "2025-11-12",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-820",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-820.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-820_f204.pdf",
+          "checked": true
         },
         {
           "docket": "24-556",
@@ -430,8 +430,8 @@
           "date": "2025-11-12",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-556",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-556.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-556_d1o2.pdf",
+          "checked": true
         },
         {
           "docket": "24-758",
@@ -439,8 +439,8 @@
           "date": "2025-11-10",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-758",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-758.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-758_2co3.pdf",
+          "checked": true
         },
         {
           "docket": "23-1197",
@@ -448,8 +448,8 @@
           "date": "2025-11-10",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/23-1197",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/23-1197.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/23-1197_c07d.pdf",
+          "checked": true
         },
         {
           "docket": "24-1287",
@@ -457,8 +457,8 @@
           "date": "2025-11-05",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1287",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1287.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1287_b07d.pdf",
+          "checked": true
         },
         {
           "docket": "24-808",
@@ -466,8 +466,8 @@
           "date": "2025-11-04",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-808",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-808.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-808_k53l.pdf",
+          "checked": true
         },
         {
           "docket": "24-724",
@@ -475,8 +475,8 @@
           "date": "2025-11-04",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-724",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-724.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-724_j42l.pdf",
+          "checked": true
         },
         {
           "docket": "24-924",
@@ -484,8 +484,8 @@
           "date": "2025-11-03",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-924",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-924.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-924_2c8f.pdf",
+          "checked": true
         },
         {
           "docket": "24-1056",
@@ -493,8 +493,8 @@
           "date": "2025-11-03",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-1056",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-1056.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-1056_o7kq.pdf",
+          "checked": true
         },
         {
           "docket": "24-624",
@@ -502,17 +502,17 @@
           "date": "2025-10-15",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-624",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-624.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-624_bq7d.pdf",
+          "checked": true
         },
         {
-          "docket": "24-109",
-          "name": "Louisiana v. Callais",
+          "docket": "24-109_2",
+          "name": "24-109 Louisiana v. Callais",
           "date": "2025-10-15",
-          "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-109",
-          "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-109.mp3",
-          "transcript": null,
-          "checked": false
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-109_2",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-109_2.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-109_5i36.pdf",
+          "checked": true
         },
         {
           "docket": "24-5438",
@@ -520,8 +520,8 @@
           "date": "2025-10-14",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-5438",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-5438.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-5438_6537.pdf",
+          "checked": true
         },
         {
           "docket": "24-482",
@@ -529,8 +529,8 @@
           "date": "2025-10-14",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-482",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-482.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-482_j5fl.pdf",
+          "checked": true
         },
         {
           "docket": "24-568",
@@ -538,8 +538,8 @@
           "date": "2025-10-08",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-568",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-568.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-568_f29g.pdf",
+          "checked": true
         },
         {
           "docket": "24-351",
@@ -547,8 +547,8 @@
           "date": "2025-10-08",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-351",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-351.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-351_khmp.pdf",
+          "checked": true
         },
         {
           "docket": "24-5774",
@@ -556,8 +556,8 @@
           "date": "2025-10-07",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-5774",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-5774.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-5774_6jf7.pdf",
+          "checked": true
         },
         {
           "docket": "24-539",
@@ -565,8 +565,8 @@
           "date": "2025-10-07",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-539",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-539.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-539_3f14.pdf",
+          "checked": true
         },
         {
           "docket": "24-557",
@@ -574,8 +574,8 @@
           "date": "2025-10-06",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-557",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-557.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-557_5ie6.pdf",
+          "checked": true
         },
         {
           "docket": "24-440",
@@ -583,8 +583,8 @@
           "date": "2025-10-06",
           "page": "https://www.supremecourt.gov/oral_arguments/audio/2025/24-440",
           "audio": "https://www.supremecourt.gov/media/audio/mp3files/24-440.mp3",
-          "transcript": null,
-          "checked": false
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2025/24-440_8m58.pdf",
+          "checked": true
         }
       ]
     }
