@@ -286,9 +286,11 @@
         const d = parseDate(c.date);
         caseDate.textContent = d ? `Argued ${d.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}` : `October Term ${c.term}`;
 
+        // Reargued cases have audio IDs like "24-109_2"; the docket itself is "24-109"
+        const docket = c.docket.replace(/_\d+$/, "");
         docketLink.hidden = false;
-        docketLink.textContent = `Docket ${c.docket}`;
-        docketLink.href = DOCKET_PAGE(c.docket);
+        docketLink.textContent = `Docket ${docket}`;
+        docketLink.href = DOCKET_PAGE(docket);
         transcriptLink.hidden = !c.transcript;
         if (c.transcript) transcriptLink.href = c.transcript;
 

@@ -114,8 +114,15 @@ def parse_list(page: str, term: int) -> list[dict]:
 
         cells = CELL_RE.findall(row) or [row]
         first = text_of(cells[0])
-        name = first[len(docket):].strip() if first.startswith(docket) else first.replace(docket, "", 1).strip()
-        name = name.strip(" -–—:")
+        # Reargued cases have audio IDs like "24-109_2" while the link text is just "24-109"
+        base = docket.split("_")[0]
+        for label in (docket, base):
+            if first.startswith(label):
+                first = first[len(label):]
+                break
+        else:
+            first = first.replace(base, "", 1)
+        name = first.strip(" -–—: ")
 
         date_iso = None
         m = DATE_RE.search(text_of(row))
