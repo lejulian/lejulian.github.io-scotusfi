@@ -1,10 +1,28 @@
 {
-  "updated": "2026-10-18T14:51:10+00:00",
+  "updated": "2026-11-02T20:49:15+00:00",
   "source": "https://www.supremecourt.gov/oral_arguments/argument_audio.aspx",
   "terms": [
     {
       "term": 2026,
       "cases": [
+        {
+          "docket": "25-5930",
+          "name": "Maxwell v. Dinis",
+          "date": "2026-11-02",
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-5930",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-5930.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-5930_4f14.pdf",
+          "checked": true
+        },
+        {
+          "docket": "25-352",
+          "name": "Younge v. Fulton Judicial Circuit Dist. Attorney’s Office",
+          "date": "2026-11-02",
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-352",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-352.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-352_1971.pdf",
+          "checked": true
+        },
         {
           "docket": "25-459",
           "name": "Salazar v. Paramount Global",
