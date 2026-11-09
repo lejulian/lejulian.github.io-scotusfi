@@ -1,10 +1,28 @@
 {
-  "updated": "2026-11-04T18:40:32+00:00",
+  "updated": "2026-11-09T21:28:19+00:00",
   "source": "https://www.supremecourt.gov/oral_arguments/argument_audio.aspx",
   "terms": [
     {
       "term": 2026,
       "cases": [
+        {
+          "docket": "25-417",
+          "name": "Nielsen v. Watanabe",
+          "date": "2026-11-09",
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-417",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-417.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-417_8n5a.pdf",
+          "checked": true
+        },
+        {
+          "docket": "25-159",
+          "name": "Hoffmann v. WBI Energy Transmission, Inc.",
+          "date": "2026-11-09",
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-159",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-159.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-159_lkgn.pdf",
+          "checked": true
+        },
         {
           "docket": "25-1003",
           "name": "Guerrero v. Johnson",
