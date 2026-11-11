@@ -1,10 +1,19 @@
 {
-  "updated": "2026-11-09T21:28:19+00:00",
+  "updated": "2026-11-11T18:44:15+00:00",
   "source": "https://www.supremecourt.gov/oral_arguments/argument_audio.aspx",
   "terms": [
     {
       "term": 2026,
       "cases": [
+        {
+          "docket": "25-966",
+          "name": "Department of Labor v. Sun Valley Orchards, LLC",
+          "date": "2026-11-10",
+          "page": "https://www.supremecourt.gov/oral_arguments/audio/2026/25-966",
+          "audio": "https://www.supremecourt.gov/media/audio/mp3files/25-966.mp3",
+          "transcript": "https://www.supremecourt.gov/oral_arguments/argument_transcripts/2026/25-966_c07d.pdf",
+          "checked": true
+        },
         {
           "docket": "25-417",
           "name": "Nielsen v. Watanabe",
